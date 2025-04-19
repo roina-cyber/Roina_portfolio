@@ -1,0 +1,306 @@
+/*!
+    Title: Dev Portfolio Template
+    Version: 1.2.2
+    Last Change: 03/25/2020
+    Author: Ryan Fitzgerald
+    Repo: https://github.com/RyanFitzgerald/devportfolio-template
+    Issues: https://github.com/RyanFitzgerald/devportfolio-template/issues
+
+    Description: This file contains all the styles associated with the page
+    that don't come from third party libraries. This file gets compiled using
+    Gulp and send to the /css folder which is then loaded on the page.
+*/
+/*
+    File Contents:
+
+        1. Variables
+        2. Mixins
+        3. Global Styles
+        4. Lead Styles
+        5. About Styles
+        6. Experience Styles
+        7. Education Styles
+        8. Project Styles
+        9. Skills Styles
+        10. Contact Styles
+        11. Optional Section Styles
+        12. Media Queries
+*/
+
+/*
+    ------------------------
+    ----- 1. Variables -----
+    ------------------------
+*/
+
+// Define base and accent colors
+$base-color: #3498db;
+$base-color-hover: darken($base-color, 10%);
+
+// Define background colors
+$background: #fff;
+$background-alt: #f2f2f5;
+
+// Define border colors
+$border: #dcd9d9;
+
+// Define text colors
+$heading: #374054;
+$text: #74808a;
+
+/*
+    ---------------------
+    ----- 2. Mixins -----
+    ---------------------
+*/
+
+@mixin transition($duration: 0.5s, $func: ease, $property: all) {
+    transition: #{$duration} #{$func} #{$property};
+}
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+
+    &:-moz-placeholder {
+        @content;
+        opacity: 1;
+    }
+
+    &::-moz-placeholder {
+        @content;
+        opacity: 1;
+    }
+
+    &:-ms-input-placeholder {
+        @content;
+    }
+}
+
+/*
+    ----------------------------
+    ----- 3. Global Styles -----
+    ----------------------------
+*/
+
+/* Base Styles */
+html {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    background: linear-gradient(to right, #02564d, #f2eeeb);
+    color: #076268;
+    text-shadow: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #1e5656, #2b5e6f, #4f7589);
+    color: #ffffff;
+    line-height: 1.8;
+}
+
+/* Home Page Background */
+body.home {
+    background-image: url("https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Structural Styles */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+    padding: 2rem;
+    background-color: transparent;
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    margin: 1.5rem;
+}
+
+/* Link Styles */
+a {
+    color: #ff6f61;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+a:hover, a:focus {
+    color: #d84315;
+    text-decoration: underline;
+}
+
+/* Headings */
+h1 {
+    font-size: 4em;
+    margin: 1.5rem 0;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #08b0a2, #e1ece5);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+mark {
+    color: #ffffff;
+    padding: 0.3em;
+    border-radius: 8px;
+}
+
+/* Typography */
+small {
+    font-size: 75%;
+    color: #ecf0f1;
+}
+b, strong {
+    font-weight: bold;
+}
+
+/* Images */
+img {
+    border: 5px solid #2c3e50;
+
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.8);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+img:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.9);
+}
+
+/* Buttons */
+button, input[type="button"], input[type="submit"] {
+    background: linear-gradient(to right, #fc4a1a, #f7b733);
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    padding: 0.8rem 1.8rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+    transition: all 0.4s ease;
+}
+button:hover, input[type="button"]:hover, input[type="submit"]:hover {
+    background: linear-gradient(to right, #f7b733, #fc4a1a);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.9);
+}
+
+/* Forms */
+input, select, textarea {
+    background-color: #264059;
+    color: #ffffff;
+    border: 2px solid #16a085;
+    border-radius: 8px;
+    padding: 0.7rem;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+input:focus, select:focus, textarea:focus {
+    border-color: #1abc9c;
+    outline: none;
+    box-shadow: inset 0 6px 12px rgba(26, 188, 156, 0.8);
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    color: #ecf0f1;
+    background-color: #264059;
+    border: 3px solid #34495e;
+}
+td, th {
+    padding: 1.5rem;
+    text-align: left;
+}
+tr:nth-child(even) {
+    background-color: #264059;
+}
+
+/* Layout */
+.container {
+    max-width: 1300px;
+    margin: auto;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius:30px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.9);
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1.5rem;
+}
+.col {
+    flex: 1;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+    margin: 1rem;
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+.text-right {
+    text-align: right;
+}
+
+.bg-primary {
+    background: linear-gradient(to right, #1f4037, #99f2c8);
+    color: #ffffff;
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+}
+
+/* Reveal animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 0.8s ease, transform 1s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Add additional animations */
+@keyframes pulseFade {
+    0% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.4;
+    }
+}
+
+.pulse-in {
+    animation: pulseFade 2s infinite;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.floating {
+    animation: fadeInUp 2s ease-out;
+    animation-delay: 0.5s;
+}
+
+/* Add more animation here as needed */
