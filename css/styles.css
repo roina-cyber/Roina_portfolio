@@ -101,7 +101,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    height: 100%;
+    height: 50vh;
+
    
   }
   
@@ -157,13 +158,37 @@ body {
   /* Optional: Add responsiveness for smaller screens */
   @media (max-width: 768px) {
     .header {
-      flex-direction: column; /* Stack text and image vertically */
-      align-items: center;
+      height: auto; /* Let height adapt to content */
     }
-    .header .image {
-      width: 80%; /* Make image smaller on mobile */
+  
+    .header-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      height: auto; /* Allow flexible height */
+    }
+  
+    .header-content .text {
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+  
+    .header-content .image {
+      width: 100%;
+      height: auto;
+      display: flex;
+      justify-content: center;
+    }
+  
+    .header-content .image img {
+      width: 80%;
+      height: auto;
+      max-height: 40vh; /* Prevent from overflowing */
+      object-fit: contain;
+      border-radius: 1rem;
     }
   }
+  
   
 
 .header .name {
